@@ -7,18 +7,18 @@ SELECT
   'Tryano' AS Source,
   SPLIT(Month, ' / ')[OFFSET(0)] AS Year,
   CASE
-  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('6','06') THEN 'Jan'
-  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('6','06') THEN 'Feb'
-  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('6','06') THEN 'Mar'
-  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('6','06') THEN 'Apr'
-  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('6','06') THEN 'May'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('1','01') THEN 'Jan'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('2','02') THEN 'Feb'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('3','03') THEN 'Mar'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('4','04') THEN 'Apr'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('5','05') THEN 'May'
   WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('6','06') THEN 'Jun'
   WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('7','07') THEN 'Jul'
-  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('6','06') THEN 'Aug'
-  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('6','06') THEN 'Sep'
-  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('6','06') THEN 'Oct'
-  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('6','06') THEN 'Nov'
-  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('6','06') THEN 'Dec'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('8','08') THEN 'Aug'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('9','09') THEN 'Sep'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('10') THEN 'Oct'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('11') THEN 'Nov'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('12') THEN 'Dec'
   END AS Month,
   'UAE' AS Country,
   'Tryano' AS Account,
