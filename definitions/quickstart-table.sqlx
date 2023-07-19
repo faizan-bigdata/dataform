@@ -1,0 +1,10 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT
+  fruit,
+  SUM(count) as count
+FROM ${ref("quickstart-source")}
+GROUP BY 1

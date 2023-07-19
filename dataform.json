@@ -1,0 +1,7 @@
+{
+  "warehouse": "bigquery",
+  "defaultDatabase": "zippy-brand-176907",
+  "defaultSchema": "dataform",
+  "assertionsSchema": "dataform_assertions",
+  "defaultLocation": "US"
+}
