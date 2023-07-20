@@ -1,3 +1,4 @@
+config {
   type: "table",
   schema: "coty_cb_mongodb"
 }
