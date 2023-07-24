@@ -1,0 +1,28 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT 'Sephora' AS Source,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+(SPLIT(Unnamed__0, '-')[OFFSET(1)]) AS Country,
+'Sephora' AS Account,
+Null AS Mall,
+UPPER(Unnamed__2) AS Door,
+UPPER(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Brand,
+'fragrance' AS Category,
+Null AS Item_Number,
+Null AS SKU,
+Null AS Qty_Sold,
+FRAGRANCE AS Sale_Amount,
+File_Name,
+Created_At,
+'Key Account' AS BU,
+Null AS Item_Code_2,
+SAFE_DIVIDE(CAST(FRAGRANCE_2 AS FLOAT64), 100) AS Category_MS,
+MS AS Total_MS,
+Null AS Category_Rank,
+Null AS Total_Rank
+FROM `zippy-brand-176907.coty_cb_mongodb.mtd_sephora_1`
+WHERE Unnamed__0 NOT IN ('Country') AND UPPER(Unnamed__0) NOT LIKE "%TOTAL%"

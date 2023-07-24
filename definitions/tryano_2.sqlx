@@ -4,7 +4,7 @@ config {
 }
 
 SELECT
-  'Tryano' AS Source,
+  'TRYANO' AS Source,
   SPLIT(Month, ' / ')[OFFSET(0)] AS Year,
   CASE
   WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('1','01') THEN 'Jan'
@@ -21,7 +21,7 @@ SELECT
   WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('12') THEN 'Dec'
   END AS Month,
   'UAE' AS Country,
-  'Tryano' AS Account,
+  'TRYANO' AS Account,
   Null AS Mall,
   Loc AS Door,
   Department_Brand AS Brand,
