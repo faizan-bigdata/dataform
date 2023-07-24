@@ -4,11 +4,11 @@ config {
 }
 
 SELECT S1.*,SAFE_DIVIDE(SUM(CAST(Sale_Amount AS FLOAT64)),SUM(CAST(Category_MS AS FLOAT64))) AS Category_Sales,SUM(S2.Total_Sales) AS Total_Sales FROM
-(SELECT * FROM `zippy-brand-176907.coty_cb_mongodb.mtd_sephora_2`) S1
+(SELECT * FROM ${ref("mtd_sephora_2")} ) S1
 LEFT OUTER JOIN
 (SELECT ACCOUNT, Door, YEAR, MONTH, Country,MAX(Total_Sales) AS Total_Sales
 FROM
-(SELECT ACCOUNT, Door, YEAR, MONTH, Brand, Country, SUM(CAST(Sale_Amount AS FLOAT64))/MAX(Total_MS) AS Total_Sales FROM `zippy-brand-176907.coty_cb_mongodb.mtd_sephora_2`  WHERE Total_MS IS NOT NULL GROUP BY ACCOUNT, Door, YEAR, MONTH, Brand, Country)
+(SELECT ACCOUNT, Door, YEAR, MONTH, Brand, Country, SUM(CAST(Sale_Amount AS FLOAT64))/MAX(Total_MS) AS Total_Sales FROM ${ref("mtd_sephora_2")} WHERE Total_MS IS NOT NULL GROUP BY ACCOUNT, Door, YEAR, MONTH, Brand, Country)
 group by ACCOUNT, Door, YEAR, MONTH, Country) S2
 ON S1.ACCOUNT = S2.ACCOUNT
 and S1.Door = S2.Door

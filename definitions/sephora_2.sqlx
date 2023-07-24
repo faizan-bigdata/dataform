@@ -34,6 +34,6 @@ SELECT
   NULL AS Item_Code_2,
   File_Name,
   Created_At,
-  CONCAT(COALESCE(SPLIT(Primary_VPN, '.')[OFFSET(0)],''),'_',COALESCE(SPLIT(Item, ':')[OFFSET(1)],''),'_','_',COALESCE(UPPER(Brand),''),'_') AS Item_Key
+  CONCAT(COALESCE(SPLIT(Primary_VPN, '.')[OFFSET(0)],''),'_',COALESCE(SPLIT(Item, ':')[OFFSET(1)],''),'_','_',COALESCE(UPPER(SPLIT(File_Name, ' - ')[OFFSET(1)]),''),'_') AS Item_Key
 FROM coty_cb_mongodb.sephora_1
 WHERE UPPER(Month) not like "%TOTAL%"
