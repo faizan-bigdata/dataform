@@ -11,7 +11,7 @@ SPLIT(Unnamed__0, ' ')[OFFSET(0)] AS Country,
 'fragrance' AS Category,
 SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
 INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
-CAST(FRAGRANCE_4 AS FLOAT64) Country_Rank_MTD,
+CAST(FRAGRANCE_4 AS FLOAT64) AS Country_Rank_MTD,
 Null AS Country_Rank_YTD,
 File_Name,
 Created_At
@@ -33,6 +33,57 @@ Null AS Country_Rank_YTD,
 File_Name,
 Created_At
 FROM `zippy-brand-176907.coty_cb_mongodb.mtd_sephora_1`
+WHERE Unnamed__0 LIKE '%Total%' AND Unnamed__0 NOT LIKE '%Grand%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Sephora' AS Account,
+'Sephora' AS Chain,
+UPPER(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Brand,
+SPLIT(Unnamed__0, ' ')[OFFSET(0)] AS Country,
+'fragrance' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(FRAGRANCE_4 AS FLOAT64) AS Country_Rank_MTD,
+Null AS Country_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.mtd_gucci_sephora_1`
+WHERE Unnamed__0 LIKE '%Total%' AND Unnamed__0 NOT LIKE '%Grand%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Sephora' AS Account,
+'Sephora' AS Chain,
+UPPER(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Brand,
+SPLIT(Unnamed__0, ' ')[OFFSET(0)] AS Country,
+'Color' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(COLOR_4 AS FLOAT64) AS Country_Rank_MTD,
+Null AS Country_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.mtd_gucci_sephora_1`
+WHERE Unnamed__0 LIKE '%Total%' AND Unnamed__0 NOT LIKE '%Grand%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Sephora' AS Account,
+'Sephora' AS Chain,
+UPPER(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Brand,
+SPLIT(Unnamed__0, ' ')[OFFSET(0)] AS Country,
+'Total' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+Rank AS Country_Rank_MTD,
+Null AS Country_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.mtd_gucci_sephora_1`
 WHERE Unnamed__0 LIKE '%Total%' AND Unnamed__0 NOT LIKE '%Grand%'
 
 UNION ALL
@@ -67,4 +118,55 @@ CAST(FRAGRANCE_4 AS FLOAT64) AS Country_Rank_YTD,
 File_Name,
 Created_At
 FROM `zippy-brand-176907.coty_cb_mongodb.ytd_sephora_1`
+WHERE Unnamed__0 LIKE '%Total%' AND Unnamed__0 NOT LIKE '%Grand%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Sephora' AS Account,
+'Sephora' AS Chain,
+UPPER(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Brand,
+SPLIT(Unnamed__0, ' ')[OFFSET(0)] AS Country,
+'fragrance' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+Null AS Country_Rank_MTD,
+CAST(FRAGRANCE_4 AS FLOAT64) AS Country_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.ytd_gucci_sephora_1`
+WHERE Unnamed__0 LIKE '%Total%' AND Unnamed__0 NOT LIKE '%Grand%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Sephora' AS Account,
+'Sephora' AS Chain,
+UPPER(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Brand,
+SPLIT(Unnamed__0, ' ')[OFFSET(0)] AS Country,
+'Color' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+Null AS Country_Rank_MTD,
+CAST(COLOR_4 AS FLOAT64) AS Country_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.ytd_gucci_sephora_1`
+WHERE Unnamed__0 LIKE '%Total%' AND Unnamed__0 NOT LIKE '%Grand%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Sephora' AS Account,
+'Sephora' AS Chain,
+UPPER(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Brand,
+SPLIT(Unnamed__0, ' ')[OFFSET(0)] AS Country,
+'Total' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+Null AS Country_Rank_MTD,
+Rank AS Country_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.ytd_gucci_sephora_1`
 WHERE Unnamed__0 LIKE '%Total%' AND Unnamed__0 NOT LIKE '%Grand%'
