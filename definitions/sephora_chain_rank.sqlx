@@ -1,0 +1,66 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT 'Key Account' AS BU,
+'Sephora' AS Account,
+'Sephora' AS Chain,
+UPPER(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Brand,
+'fragrance' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(FRAGRANCE_4 AS FLOAT64) Chain_Rank_MTD,
+Null AS Chain_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.mtd_sephora_1`
+WHERE Unnamed__0 IN ('Grand Total')
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Sephora' AS Account,
+'Sephora' AS Chain,
+UPPER(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Brand,
+'Total' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+Rank AS Chain_Rank_MTD,
+Null AS Chain_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.mtd_sephora_1`
+WHERE Unnamed__0 IN ('Grand Total')
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Sephora' AS Account,
+'Sephora' AS Chain,
+UPPER(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Brand,
+'Total' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+Null AS Chain_Rank_MTD,
+Rank AS Chain_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.ytd_sephora_1`
+WHERE Unnamed__0 IN ('Grand Total')
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Sephora' AS Account,
+'Sephora' AS Chain,
+UPPER(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Brand,
+'fragrance' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+Null AS Chain_Rank_MTD,
+CAST(FRAGRANCE_4 AS FLOAT64) AS Chain_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.ytd_sephora_1`
+WHERE Unnamed__0 IN ('Grand Total')
