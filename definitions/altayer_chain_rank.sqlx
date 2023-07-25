@@ -1,0 +1,98 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Brands_1 AS Brand,
+'PERFUME' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(TM_SALES_RANKING_1 AS FLOAT64) AS Chain_Rank_MTD,
+Null AS Chain_Rank_YTD,
+File_Name,
+Created_At
+FROM coty_cb_mongodb.rank_altayer
+WHERE Outlet_1 LIKE '%Companies%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Brands_1 AS Brand,
+'PERFUME' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+Null AS Chain_Rank_MTD,
+CAST(TY_SALES_RANKING_1 AS FLOAT64) AS Chain_Rank_YTD,
+File_Name,
+Created_At
+FROM coty_cb_mongodb.rank_altayer
+WHERE Outlet_1 LIKE '%Companies%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Brands_2 AS Brand,
+'MAKE UP' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(TM_SALES_RANKING_2 AS FLOAT64) AS Chain_Rank_MTD,
+Null AS Chain_Rank_YTD,
+File_Name,
+Created_At
+FROM coty_cb_mongodb.rank_altayer
+WHERE Outlet_2 LIKE '%Companies%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Brands_2 AS Brand,
+'MAKE UP' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+Null AS Chain_Rank_MTD,
+CAST(TY_SALES_RANKING_2 AS FLOAT64) AS Chain_Rank_YTD,
+File_Name,
+Created_At
+FROM coty_cb_mongodb.rank_altayer
+WHERE Outlet_2 LIKE '%Companies%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Brands_3 AS Brand,
+'SKIN CARE' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(TM_SALES_RANKING_3 AS FLOAT64) AS Chain_Rank_MTD,
+Null AS Chain_Rank_YTD,
+File_Name,
+Created_At
+FROM coty_cb_mongodb.rank_altayer
+WHERE Outlet_3 LIKE '%Companies%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Brands_3 AS Brand,
+'SKIN CARE' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+Null AS Chain_Rank_MTD,
+CAST(TY_SALES_RANKING_3 AS FLOAT64) AS Chain_Rank_YTD,
+File_Name,
+Created_At
+FROM coty_cb_mongodb.rank_altayer
+WHERE Outlet_3 LIKE '%Companies%'

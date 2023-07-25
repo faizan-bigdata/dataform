@@ -1,0 +1,104 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Outlet_1 AS Door,
+Brands_1 AS Brand,
+'PERFUME' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(TM_SALES_RANKING_1 AS FLOAT64) AS Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM coty_cb_mongodb.rank_altayer
+WHERE Outlet_1 NOT LIKE '%Companies%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Outlet_1 AS Door,
+Brands_1 AS Brand,
+'PERFUME' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+Null AS Door_Rank_MTD,
+CAST(TY_SALES_RANKING_1 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM coty_cb_mongodb.rank_altayer
+WHERE Outlet_1 NOT LIKE '%Companies%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Outlet_2 AS Door,
+Brands_2 AS Brand,
+'MAKE UP' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(TM_SALES_RANKING_2 AS FLOAT64) AS Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM coty_cb_mongodb.rank_altayer
+WHERE Outlet_2 NOT LIKE '%Companies%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Outlet_2 AS Door,
+Brands_2 AS Brand,
+'MAKE UP' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+Null AS Door_Rank_MTD,
+CAST(TY_SALES_RANKING_2 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM coty_cb_mongodb.rank_altayer
+WHERE Outlet_2 NOT LIKE '%Companies%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Outlet_3 AS Door,
+Brands_3 AS Brand,
+'SKIN CARE' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(TM_SALES_RANKING_3 AS FLOAT64) AS Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM coty_cb_mongodb.rank_altayer
+WHERE Outlet_3 NOT LIKE '%Companies%'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Outlet_3 AS Door,
+Brands_3 AS Brand,
+'SKIN CARE' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+Null AS Door_Rank_MTD,
+CAST(TY_SALES_RANKING_3 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM coty_cb_mongodb.rank_altayer
+WHERE Outlet_3 NOT LIKE '%Companies%'
