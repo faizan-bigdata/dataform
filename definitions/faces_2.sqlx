@@ -1,0 +1,38 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT
+  'Faces' AS Source,
+  SPLIT(Month, ' / ')[OFFSET(0)] AS Year,
+  CASE
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('1','01') THEN 'Jan'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('2','02') THEN 'Feb'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('3','03') THEN 'Mar'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('4','04') THEN 'Apr'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('5','05') THEN 'May'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('6','06') THEN 'Jun'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('7','07') THEN 'Jul'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('8','08') THEN 'Aug'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('9','09') THEN 'Sep'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('10') THEN 'Oct'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('11') THEN 'Nov'
+  WHEN SPLIT(Month, ' / ')[OFFSET(1)] IN ('12') THEN 'Dec'
+  END AS Month,
+  Area AS Country,
+  'Faces' AS Account,
+  Null AS Mall,
+  Loc AS Door,
+  Department_Brand AS Brand,
+  Division AS Category,
+  Primary_VPN AS Item_Number,
+  ( SELECT STRING_AGG(item, ':' ORDER BY OFFSET) FROM UNNEST(SPLIT(Item, ':')) item WITH OFFSET WHERE OFFSET > 0 ) AS SKU,
+  Net_Sales_Qty AS Qty_Sold,
+  Net_Sales_Amt__USD_	AS Sale_Amount,
+  'Key_Account' AS	BU,
+  NULL AS Item_Code_2,
+  File_Name,
+  Created_At,
+  CONCAT(COALESCE(Primary_VPN,''),'_',COALESCE(( SELECT STRING_AGG(item, ':' ORDER BY OFFSET) FROM UNNEST(SPLIT(Item, ':')) item WITH OFFSET WHERE OFFSET > 0 ),''),'_','_',COALESCE(Department_Brand,''),'_',COALESCE(Division,'')) AS Item_Key
+FROM coty_cb_mongodb.faces_1
