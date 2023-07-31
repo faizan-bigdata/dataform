@@ -1,0 +1,24 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT 'Qatar Duty Free' AS Source,
+  SPLIT(SPLIT(File_Name, ' - ')[OFFSET(2)], '.')[OFFSET(0)] AS Year,
+  INITCAP((SPLIT(File_Name, ' - ')[OFFSET(1)])) AS Month,
+  'Qatar' AS Country,
+  'Qatar Duty Free' AS Account,
+  Null AS Mall,
+  'Qatar Duty Free' AS Door,
+  Brand,
+  Product_Category AS Category,
+  Null AS Item_Number,
+  Description AS SKU,
+  Sold_Qty_QDF AS Qty_Sold,
+  Sales_Value__QAR___QDF AS Sale_Amount,
+  'Travel Retail' AS	BU,
+  Reference AS Item_Code_2,
+  File_Name,
+  Created_At,
+  CONCAT('_',COALESCE(Description,''),'_',COALESCE(Reference,''),'_',COALESCE(Brand,''),'_',COALESCE(Product_Category,'')) AS Item_Key
+  FROM `zippy-brand-176907.coty_cb_mongodb.qdf_1` WHERE Brand IS NOT NULL
