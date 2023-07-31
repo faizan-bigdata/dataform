@@ -1,0 +1,30 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT * FROM ${ref("alshaya_2")}
+
+UNION ALL
+
+SELECT * FROM ${ref("altayer_2")}
+
+UNION ALL
+
+SELECT * FROM ${ref("ddf_2")}
+
+UNION ALL
+
+SELECT * FROM ${ref("faces_2")}
+
+UNION ALL
+
+SELECT * FROM ${ref("qdf_2")}
+
+UNION ALL
+
+SELECT * FROM ${ref("sephora_2")}
+
+UNION ALL
+
+SELECT * FROM ${ref("tryano_2")}

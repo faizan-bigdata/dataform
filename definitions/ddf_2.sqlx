@@ -9,7 +9,7 @@ SELECT
   INITCAP((SPLIT(File_Name, ' - ')[OFFSET(1)])) AS Month,
   'Dubai' AS Country,
   'Dubai Duty Free' AS Account,
-  Null AS Mall,
+  '' AS Mall,
   STORE_NAME AS Door,
   CLASS AS Brand,
   DEPARTMENT AS Category,

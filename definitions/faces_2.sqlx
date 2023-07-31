@@ -22,7 +22,7 @@ SELECT
   END AS Month,
   Area AS Country,
   'Faces' AS Account,
-  Null AS Mall,
+  '' AS Mall,
   Loc AS Door,
   Department_Brand AS Brand,
   Division AS Category,
@@ -31,7 +31,7 @@ SELECT
   Net_Sales_Qty AS Qty_Sold,
   Net_Sales_Amt__USD_	AS Sale_Amount,
   'Key_Account' AS	BU,
-  NULL AS Item_Code_2,
+  '' AS Item_Code_2,
   File_Name,
   Created_At,
   CONCAT(COALESCE(Primary_VPN,''),'_',COALESCE(( SELECT STRING_AGG(item, ':' ORDER BY OFFSET) FROM UNNEST(SPLIT(Item, ':')) item WITH OFFSET WHERE OFFSET > 0 ),''),'_','_',COALESCE(Department_Brand,''),'_',COALESCE(Division,'')) AS Item_Key
