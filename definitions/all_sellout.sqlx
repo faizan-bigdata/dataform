@@ -28,3 +28,7 @@ SELECT * FROM ${ref("sephora_2")}
 UNION ALL
 
 SELECT * FROM ${ref("tryano_2")}
+
+UNION ALL
+
+SELECT * FROM ${ref("glf_2")}
