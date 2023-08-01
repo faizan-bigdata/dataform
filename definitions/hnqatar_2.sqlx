@@ -15,10 +15,10 @@ SELECT
   Category_ AS Category,
   Supplier_Item_Code AS Item_Number,
   ItemDesc_ AS SKU,
-  Month_Sold__Qty_ AS Qty_Sold,
+  CAST(Month_Sold__Qty_ AS FLOAT64) AS Qty_Sold,
   Month_Sales__QAR_	AS Sale_Amount,
   'Key Account' AS	BU,
-  Supplier_Barcode AS Item_Code_2,
+  CAST(Supplier_Barcode AS STRING) AS Item_Code_2,
   File_Name,
   Created_At,
   CONCAT(COALESCE(CAST(Supplier_Item_Code AS STRING),''),'_',COALESCE(ItemDesc_,''),'_',COALESCE(CAST(Supplier_Barcode AS STRING),''),'_',COALESCE(Brand_,''),'_',COALESCE(Category_,'')) AS Item_Key

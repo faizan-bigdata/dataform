@@ -5,8 +5,8 @@ config {
 
 SELECT
   Main_Brand AS Source,
-  SPLIT(SPLIT(File_Name, ' ')[OFFSET(2)], '.')[OFFSET(0)] AS Year,
-  INITCAP((SPLIT(File_Name, ' ')[OFFSET(1)])) AS Month,
+  SPLIT(SPLIT(File_Name, ' - ')[OFFSET(2)], '.')[OFFSET(0)] AS Year,
+  INITCAP((SPLIT(File_Name, ' - ')[OFFSET(1)])) AS Month,
   Country,
   'Al Shaya' AS Account,
   '' AS Mall,
@@ -23,3 +23,4 @@ SELECT
   Created_At,
   CONCAT('_',COALESCE(Description,''),'_',COALESCE(CAST(Barcode AS STRING),''),'_',COALESCE(Brands,''),'_',COALESCE(Category,'')) AS Item_Key
 FROM coty_cb_mongodb.alshaya_1
+WHERE FORMAT_DATETIME("%B", DATETIME(Date)) = INITCAP((SPLIT(File_Name, ' - ')[OFFSET(1)]))

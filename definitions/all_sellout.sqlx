@@ -36,3 +36,7 @@ SELECT * FROM ${ref("glf_2")}
 UNION ALL
 
 SELECT * FROM ${ref("gsb_2")}
+
+UNION ALL
+
+SELECT * FROM ${ref("hnqatar_2")}
