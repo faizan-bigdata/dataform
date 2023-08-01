@@ -17,7 +17,7 @@ SELECT
   Description AS SKU,
   Quantity_Sold AS Qty_Sold,
   Net_Amount_Excl_VAT	AS Sale_Amount,
-  'Travel Retail' AS	BU,
+  'Key Account' AS	BU,
   SPLIT(CAST(Barcode_No_ AS STRING), '.')[OFFSET(0)] AS Item_Code_2,
   File_Name,
   Created_At,
