@@ -20,7 +20,7 @@ SELECT SPLIT(Locations, ' - ')[OFFSET(1)] AS Source,
   END
   AS Item_Number,
   Item_DESC AS SKU,
-  CAST(Sales_Qty AS FLOAT64) AS Qty_Sold,
+  CAST(Sales_Qty AS INT64) AS Qty_Sold,
   Sales_Value	AS Sale_Amount,
   'Key_Account' AS	BU,
   SPLIT(CAST(Barcode AS STRING),'.')[OFFSET(0)] AS Item_Code_2,

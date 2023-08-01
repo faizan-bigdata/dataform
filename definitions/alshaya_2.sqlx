@@ -15,7 +15,7 @@ SELECT
   Category,
   '' AS Item_Number,
   Description AS SKU,
-  CAST(Quantity AS FLOAT64) AS Qty_Sold,
+  CAST(Quantity AS INT64) AS Qty_Sold,
   Sales	AS Sale_Amount,
   'Key_Account' AS	BU,
   CAST(Barcode AS STRING) AS Item_Code_2,

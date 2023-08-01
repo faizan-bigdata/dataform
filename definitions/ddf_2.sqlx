@@ -21,7 +21,7 @@ SELECT
   END
   AS Item_Number,
   DESCRIPTION AS SKU,
-  MTD_SALES_QTY AS Qty_Sold,
+  CAST(MTD_SALES_QTY AS INT64) AS Qty_Sold,
   MTD_SALES_VALUE	AS Sale_Amount,
   'Travel Retail' AS	BU,
   SPLIT(CAST(BARCODE AS STRING), '.')[OFFSET(0)] AS Item_Code_2,

@@ -28,7 +28,7 @@ SELECT
   Division AS Category,
   Primary_VPN AS Item_Number,
   ( SELECT STRING_AGG(item, ':' ORDER BY OFFSET) FROM UNNEST(SPLIT(Item, ':')) item WITH OFFSET WHERE OFFSET > 0 ) AS SKU,
-  Net_Sales_Qty AS Qty_Sold,
+  CAST(Net_Sales_Qty AS INT64) AS Qty_Sold,
   Net_Sales_Amt__USD_	AS Sale_Amount,
   'Key_Account' AS	BU,
   '' AS Item_Code_2,

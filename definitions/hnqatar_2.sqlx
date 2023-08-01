@@ -15,7 +15,7 @@ SELECT
   Category_ AS Category,
   Supplier_Item_Code AS Item_Number,
   ItemDesc_ AS SKU,
-  CAST(Month_Sold__Qty_ AS FLOAT64) AS Qty_Sold,
+  CAST(Month_Sold__Qty_ AS INT64) AS Qty_Sold,
   Month_Sales__QAR_	AS Sale_Amount,
   'Key Account' AS	BU,
   CAST(Supplier_Barcode AS STRING) AS Item_Code_2,

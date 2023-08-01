@@ -15,7 +15,7 @@ SELECT
   CASE WHEN ( SELECT STRING_AGG(Category, ' ' ORDER BY OFFSET) FROM UNNEST(SPLIT(Category, ' ')) category WITH OFFSET WHERE OFFSET > 0 ) IS NULL THEN 'Fragrance' ELSE ( SELECT STRING_AGG(Category, ' ' ORDER BY OFFSET) FROM UNNEST(SPLIT(Category, ' ')) category WITH OFFSET WHERE OFFSET > 0 ) END AS Category,
   '' AS Item_Number,
   Description AS SKU,
-  Quantity AS Qty_Sold,
+  CAST(Quantity AS INT64) AS Qty_Sold,
   Value_Without_TAX	AS Sale_Amount,
   'Key Account' AS	BU,
   SPLIT(CAST(Barcode AS STRING), '.')[OFFSET(0)] AS Item_Code_2,

@@ -15,7 +15,7 @@ SELECT
   CASE WHEN UPPER(House) LIKE '%MAKE UP%' THEN 'Make Up' WHEN UPPER(House) LIKE '%LANCASTER%' THEN 'Skin Care' ELSE 'Fragrance' END AS Category,
   SPLIT(CAST(Vendor_Item_No_ AS STRING), '.')[OFFSET(0)] AS Item_Number,
   Description AS SKU,
-  Quantity_Sold AS Qty_Sold,
+  CAST(Quantity_Sold AS INT64) AS Qty_Sold,
   Net_Amount_Excl_VAT	AS Sale_Amount,
   'Key Account' AS	BU,
   SPLIT(CAST(Barcode_No_ AS STRING), '.')[OFFSET(0)] AS Item_Code_2,

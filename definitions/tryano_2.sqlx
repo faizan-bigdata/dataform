@@ -28,7 +28,7 @@ SELECT
   Department AS Category,
   Primary_VPN AS Item_Number,
   SPLIT(Item, ':')[OFFSET(1)] AS SKU,
-  Net_Sales_Qty AS Qty_Sold,
+  CAST(Net_Sales_Qty AS INT64) AS Qty_Sold,
   Net_Sales_Amt	AS Sale_Amount,
   'Key_Account' AS	BU,
   '' AS Item_Code_2,
