@@ -24,7 +24,7 @@ SELECT
   'Sephora' AS Account,
   '' AS Mall,
   Loc AS Door,
-  UPPER(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Brand,
+  UPPER(SPLIT(File_Name, ' - ')[OFFSET(3)]) AS Brand,
   '' AS Category,
   SPLIT(Primary_VPN, '.')[OFFSET(0)] AS Item_Number,
   SPLIT(Item, ':')[OFFSET(1)] AS SKU,
