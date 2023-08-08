@@ -1,0 +1,106 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT 'Faces' AS Source,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+Unnamed__2 AS Country,
+'Faces' AS Account,
+Null AS Mall,
+Unnamed__1 AS Door,
+Brand_ AS Brand,
+'FR' AS Category,
+Null AS Item_Number,
+Null AS SKU,
+Null AS Qty_Sold,
+FR_1 AS Sale_Amount,
+File_Name,
+Created_At,
+'Key Account' AS BU,
+Null AS Item_Code_2,
+CAST(FR_4 AS FLOAT64) AS Category_MS,
+CAST(TOTAL_1 AS FLOAT64) AS Total_MS,
+CAST(FR_6 AS INT64) AS Category_Rank,
+CAST(BRAND AS INT64) AS Total_Rank
+FROM `zippy-brand-176907.coty_cb_mongodb.faces_mtd_1`
+WHERE Unnamed__2 IS NOT NULL
+
+UNION ALL
+
+SELECT 'Faces' AS Source,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+Unnamed__2 AS Country,
+'Faces' AS Account,
+Null AS Mall,
+Unnamed__1 AS Door,
+Brand_ AS Brand,
+'FR' AS Category,
+Null AS Item_Number,
+Null AS SKU,
+Null AS Qty_Sold,
+FR_1 AS Sale_Amount,
+File_Name,
+Created_At,
+'Key Account' AS BU,
+Null AS Item_Code_2,
+CAST(FR_4 AS FLOAT64) AS Category_MS,
+CAST(TOTAL_4 AS FLOAT64) AS Total_MS,
+CAST(FR_6 AS INT64) AS Category_Rank,
+CAST(BRAND AS INT64) AS Total_Rank
+FROM `zippy-brand-176907.coty_cb_mongodb.bur_faces_mtd_1`
+WHERE Unnamed__2 IS NOT NULL
+
+UNION ALL
+
+SELECT 'Faces' AS Source,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+Unnamed__2 AS Country,
+'Faces' AS Account,
+Null AS Mall,
+Unnamed__1 AS Door,
+Brand_ AS Brand,
+'MU' AS Category,
+Null AS Item_Number,
+Null AS SKU,
+Null AS Qty_Sold,
+MU_1 AS Sale_Amount,
+File_Name,
+Created_At,
+'Key Account' AS BU,
+Null AS Item_Code_2,
+CAST(MU_4 AS FLOAT64) AS Category_MS,
+CAST(TOTAL_4 AS FLOAT64) AS Total_MS,
+CAST(MU_6 AS INT64) AS Category_Rank,
+CAST(BRAND AS INT64) AS Total_Rank
+FROM `zippy-brand-176907.coty_cb_mongodb.bur_faces_mtd_1`
+WHERE Unnamed__2 IS NOT NULL
+
+UNION ALL
+
+SELECT 'Faces' AS Source,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+Unnamed__2 AS Country,
+'Faces' AS Account,
+Null AS Mall,
+Unnamed__1 AS Door,
+Brand_ AS Brand,
+'SK' AS Category,
+Null AS Item_Number,
+Null AS SKU,
+Null AS Qty_Sold,
+SK_1 AS Sale_Amount,
+File_Name,
+Created_At,
+'Key Account' AS BU,
+Null AS Item_Code_2,
+CAST(SK_4 AS FLOAT64) AS Category_MS,
+CAST(TOTAL_1 AS FLOAT64) AS Total_MS,
+CAST(SK_6  AS INT64) AS Category_Rank,
+CAST(BRAND  AS INT64) AS Total_Rank
+FROM `zippy-brand-176907.coty_cb_mongodb.lan_faces_mtd_1`
+WHERE Unnamed__2 IS NOT NULL
