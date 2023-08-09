@@ -1,0 +1,226 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'FR' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+CAST(FR_6 AS FLOAT64) Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.faces_mtd_1`
+WHERE Number = 'Grand Total'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'Total' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+CAST(BRAND AS FLOAT64) Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.faces_mtd_1`
+WHERE Number = 'Grand Total'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'FR' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+Null AS Door_Rank_MTD,
+CAST(FR_6 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.faces_ytd_1`
+WHERE Number = 'Grand Total'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'Total' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+Null AS Door_Rank_MTD,
+CAST(BRAND AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.faces_ytd_1`
+WHERE Number = 'Grand Total'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'FR' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+CAST(FR_6 AS FLOAT64) Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.bur_faces_mtd_1`
+WHERE Number = 'Grand Total'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'Total' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+CAST(BRAND AS FLOAT64) Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.bur_faces_mtd_1`
+WHERE Number = 'Grand Total'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'FR' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+Null AS Door_Rank_MTD,
+CAST(FR_6 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.bur_faces_ytd_1`
+WHERE Number = 'Grand Total'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'Total' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+Null AS Door_Rank_MTD,
+CAST(BRAND AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.bur_faces_ytd_1`
+WHERE Number = 'Grand Total'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'MU' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+CAST(MU_6 AS FLOAT64) Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.bur_faces_mtd_1`
+WHERE Number = 'Grand Total'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'MU' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+Null AS Door_Rank_MTD,
+CAST(MU_6 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.bur_faces_ytd_1`
+WHERE Number = 'Grand Total'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'SK' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+CAST(SK_6 AS FLOAT64) Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.lan_faces_mtd_1`
+WHERE Number = 'Grand Total'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'Total' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+CAST(BRAND AS FLOAT64) Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.lan_faces_mtd_1`
+WHERE Number = 'Grand Total'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'SK' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+Null AS Door_Rank_MTD,
+CAST(SK_6 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.lan_faces_ytd_1`
+WHERE Number = 'Grand Total'
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Faces' AS Account,
+'Faces' AS Chain,
+Brand_ AS Brand,
+'Total' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+Null AS Door_Rank_MTD,
+CAST(BRAND AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.lan_faces_ytd_1`
+WHERE Number = 'Grand Total'
