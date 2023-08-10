@@ -5,7 +5,7 @@ config {
 
 SELECT 'Key Account' AS BU,
 'Al Tayer' AS Account,
-CASE WHEN CONTAINS_SUBSTR(Outlet_1, ' - ') THEN (CASE WHEN CONTAINS_SUBSTR(SPLIT(Outlet_1, ' - ')[OFFSET(1)], '-') THEN TRIM(SPLIT(SPLIT(Outlet_1, ' - ')[OFFSET(1)],'-')[OFFSET(0)]) WHEN CONTAINS_SUBSTR(SPLIT(Outlet_1, ' - ')[OFFSET(1)], 'Harvey Nichols') THEN 'Harvey Nichols UAE' ELSE SPLIT(Outlet_1, ' - ')[OFFSET(1)] END ) ELSE (CASE WHEN CONTAINS_SUBSTR(Outlet_1,'Kiehls PopUp') THEN 'Kiehls PopUp' WHEN CONTAINS_SUBSTR(Outlet_1,'Diptyque PopUp') THEN 'Diptyque PopUp' WHEN CONTAINS_SUBSTR(Outlet_1,'TFK PopUp') THEN 'TFK PopUp' ELSE Outlet_1 END) END AS Chain,
+'Al Tayer' AS Chain,
 Brands_1 AS Brand,
 'PERFUME' AS Category,
 SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
@@ -20,7 +20,7 @@ UNION ALL
 
 SELECT 'Key Account' AS BU,
 'Al Tayer' AS Account,
-CASE WHEN CONTAINS_SUBSTR(Outlet_2, ' - ') THEN (CASE WHEN CONTAINS_SUBSTR(SPLIT(Outlet_2, ' - ')[OFFSET(1)], '-') THEN TRIM(SPLIT(SPLIT(Outlet_2, ' - ')[OFFSET(1)],'-')[OFFSET(0)]) WHEN CONTAINS_SUBSTR(SPLIT(Outlet_2, ' - ')[OFFSET(1)], 'Harvey Nichols') THEN 'Harvey Nichols UAE' ELSE SPLIT(Outlet_2, ' - ')[OFFSET(1)] END ) ELSE (CASE WHEN CONTAINS_SUBSTR(Outlet_2,'Kiehls PopUp') THEN 'Kiehls PopUp' WHEN CONTAINS_SUBSTR(Outlet_2,'Diptyque PopUp') THEN 'Diptyque PopUp' WHEN CONTAINS_SUBSTR(Outlet_2,'TFK PopUp') THEN 'TFK PopUp' ELSE Outlet_2 END)  END AS Chain,
+'Al Tayer' AS Chain,
 Brands_2 AS Brand,
 'MAKE UP' AS Category,
 SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
@@ -35,13 +35,58 @@ UNION ALL
 
 SELECT 'Key Account' AS BU,
 'Al Tayer' AS Account,
-CASE WHEN CONTAINS_SUBSTR(Outlet_3, ' - ') THEN (CASE WHEN CONTAINS_SUBSTR(SPLIT(Outlet_3, ' - ')[OFFSET(1)], '-') THEN TRIM(SPLIT(SPLIT(Outlet_3, ' - ')[OFFSET(1)],'-')[OFFSET(0)]) WHEN CONTAINS_SUBSTR(SPLIT(Outlet_3, ' - ')[OFFSET(1)], 'Harvey Nichols') THEN 'Harvey Nichols UAE' ELSE SPLIT(Outlet_3, ' - ')[OFFSET(1)] END ) ELSE (CASE WHEN CONTAINS_SUBSTR(Outlet_3,'Kiehls PopUp') THEN 'Kiehls PopUp' WHEN CONTAINS_SUBSTR(Outlet_3,'Diptyque PopUp') THEN 'Diptyque PopUp' WHEN CONTAINS_SUBSTR(Outlet_3,'TFK PopUp') THEN 'TFK PopUp' ELSE Outlet_3 END)  END AS Chain,
+'Al Tayer' AS Chain,
 Brands_3 AS Brand,
 'SKIN CARE' AS Category,
 SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
 INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
 CAST(TM_SALES_RANKING_3 AS FLOAT64) Door_Rank_MTD,
 Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.rank_altayer` WHERE Outlet_3 IN ('All Companies')
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Brands_1 AS Brand,
+'PERFUME' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+NULL AS Door_Rank_MTD,
+CAST(TY_SALES_RANKING_3 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.rank_altayer` WHERE Outlet_1 IN ('All Companies')
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Brands_2 AS Brand,
+'MAKE UP' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+NULL AS Door_Rank_MTD,
+CAST(TY_SALES_RANKING_3 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.rank_altayer` WHERE Outlet_2 IN ('All Companies')
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Tayer' AS Account,
+'Al Tayer' AS Chain,
+Brands_3 AS Brand,
+'SKIN CARE' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+NULL AS Door_Rank_MTD,
+CAST(TY_SALES_RANKING_3 AS FLOAT64) AS Door_Rank_YTD,
 File_Name,
 Created_At
 FROM `zippy-brand-176907.coty_cb_mongodb.rank_altayer` WHERE Outlet_3 IN ('All Companies')
