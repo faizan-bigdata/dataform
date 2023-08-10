@@ -15,7 +15,7 @@ CAST(TM_SALES_RANKING_1 AS FLOAT64) Door_Rank_MTD,
 Null AS Door_Rank_YTD,
 File_Name,
 Created_At
-FROM `zippy-brand-176907.coty_cb_mongodb.rank_altayer` WHERE Outlet_1 NOT IN ('All Companies')
+FROM `zippy-brand-176907.coty_cb_mongodb.rank_altayer` WHERE Outlet_1 IN ('All Companies')
 
 UNION ALL
 
@@ -31,7 +31,7 @@ CAST(TM_SALES_RANKING_2 AS FLOAT64) Door_Rank_MTD,
 Null AS Door_Rank_YTD,
 File_Name,
 Created_At
-FROM `zippy-brand-176907.coty_cb_mongodb.rank_altayer` WHERE Outlet_2 NOT IN ('All Companies')
+FROM `zippy-brand-176907.coty_cb_mongodb.rank_altayer` WHERE Outlet_2 IN ('All Companies')
 
 UNION ALL
 
@@ -47,4 +47,4 @@ CAST(TM_SALES_RANKING_3 AS FLOAT64) Door_Rank_MTD,
 Null AS Door_Rank_YTD,
 File_Name,
 Created_At
-FROM `zippy-brand-176907.coty_cb_mongodb.rank_altayer` WHERE Outlet_3 NOT IN ('All Companies')
+FROM `zippy-brand-176907.coty_cb_mongodb.rank_altayer` WHERE Outlet_3 IN ('All Companies')
