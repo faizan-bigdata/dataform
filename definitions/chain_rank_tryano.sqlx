@@ -1,0 +1,87 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT 
+'Key Account' AS BU,
+'Tryano' AS Account,
+'Tryano' AS Chain,
+ALL_BRANDS AS Brand,
+'Total' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(Unnamed__1 AS FLOAT64) AS Door_Rank_MTD,
+CAST(Unnamed__2 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.rank_tryano`
+WHERE ALL_BRANDS NOT IN ('BRANDS') AND ALL_BRANDS IS NOT NULL
+
+UNION ALL
+
+SELECT 
+'Key Account' AS BU,
+'Tryano' AS Account,
+'Tryano' AS Chain,
+FRAGRANCES AS Brand,
+'fragrances' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(Unnamed__5 AS FLOAT64) AS Door_Rank_MTD,
+CAST(Unnamed__6 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.rank_tryano`
+WHERE ALL_BRANDS NOT IN ('BRANDS') AND FRAGRANCES IS NOT NULL
+
+UNION ALL
+
+SELECT 
+'Key Account' AS BU,
+'Tryano' AS Account,
+'Tryano' AS Chain,
+MAKE_UP AS Brand,
+'make up' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(Unnamed__9 AS FLOAT64) AS Door_Rank_MTD,
+CAST(Unnamed__10 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.rank_tryano`
+WHERE ALL_BRANDS NOT IN ('BRANDS') AND MAKE_UP IS NOT NULL
+
+UNION ALL
+
+SELECT 
+'Key Account' AS BU,
+'Tryano' AS Account,
+'Tryano' AS Chain,
+SKINCARE AS Brand,
+'skincare' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(Unnamed__13 AS FLOAT64) AS Door_Rank_MTD,
+CAST(Unnamed__14 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.rank_tryano`
+WHERE ALL_BRANDS NOT IN ('BRANDS') AND SKINCARE IS NOT NULL
+
+UNION ALL
+
+SELECT 
+'Key Account' AS BU,
+'Tryano' AS Account,
+'Tryano' AS Chain,
+HAIR_CARE AS Brand,
+'hair care' AS Category,
+SPLIT(File_Name, ' - ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(2)]) AS Month,
+CAST(Unnamed__17 AS FLOAT64) AS Door_Rank_MTD,
+CAST(Unnamed__18 AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.rank_tryano`
+WHERE ALL_BRANDS NOT IN ('BRANDS') AND HAIR_CARE IS NOT NULL
