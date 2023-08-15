@@ -1,0 +1,128 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT 'Key Account' AS BU,
+'Galeries Lafayette' AS Account,
+'Galeries Lafayette' AS Chain,
+'Galeries Lafayette' AS Door,
+Unnamed__2 AS Brand,
+'Total' AS Category,
+SPLIT(File_Name, ' ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' ')[OFFSET(2)]) AS Month,
+CAST(Beauty_Department AS FLOAT64) Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.glf_mtd_1`
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Galeries Lafayette' AS Account,
+'Galeries Lafayette' AS Chain,
+'Galeries Lafayette' AS Door,
+Unnamed__8 AS Brand,
+'all fragrances' AS Category,
+SPLIT(File_Name, ' ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' ')[OFFSET(2)]) AS Month,
+CAST(All_Fragrances AS FLOAT64) Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.glf_mtd_1` WHERE Unnamed__8 IS NOT NULL
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Galeries Lafayette' AS Account,
+'Galeries Lafayette' AS Chain,
+'Galeries Lafayette' AS Door,
+Unnamed__12 AS Brand,
+'make up' AS Category,
+SPLIT(File_Name, ' ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' ')[OFFSET(2)]) AS Month,
+CAST(Make_up AS FLOAT64) Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.glf_mtd_1` WHERE Unnamed__12 IS NOT NULL
+
+UNION ALL
+SELECT 'Key Account' AS BU,
+'Galeries Lafayette' AS Account,
+'Galeries Lafayette' AS Chain,
+'Galeries Lafayette' AS Door,
+Unnamed__16 AS Brand,
+'skincare' AS Category,
+SPLIT(File_Name, ' ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' ')[OFFSET(2)]) AS Month,
+CAST(Skincare AS FLOAT64) Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.glf_mtd_1` WHERE Unnamed__16 IS NOT NULL
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Galeries Lafayette' AS Account,
+'Galeries Lafayette' AS Chain,
+'Galeries Lafayette' AS Door,
+Unnamed__2 AS Brand,
+'Total' AS Category,
+SPLIT(File_Name, ' ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' ')[OFFSET(2)]) AS Month,
+NULL AS Door_Rank_MTD,
+CAST(Beauty_Department AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.glf_ytd_1`
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Galeries Lafayette' AS Account,
+'Galeries Lafayette' AS Chain,
+'Galeries Lafayette' AS Door,
+Unnamed__8 AS Brand,
+'all fragrances' AS Category,
+SPLIT(File_Name, ' ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' ')[OFFSET(2)]) AS Month,
+NULL AS Door_Rank_MTD,
+CAST(All_Fragrances AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.glf_ytd_1` WHERE Unnamed__8 IS NOT NULL
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Galeries Lafayette' AS Account,
+'Galeries Lafayette' AS Chain,
+'Galeries Lafayette' AS Door,
+Unnamed__12 AS Brand,
+'make up' AS Category,
+SPLIT(File_Name, ' ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' ')[OFFSET(2)]) AS Month,
+NULL AS Door_Rank_MTD,
+CAST(Make_up AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.glf_ytd_1` WHERE Unnamed__12 IS NOT NULL
+
+UNION ALL
+SELECT 'Key Account' AS BU,
+'Galeries Lafayette' AS Account,
+'Galeries Lafayette' AS Chain,
+'Galeries Lafayette' AS Door,
+Unnamed__16 AS Brand,
+'skincare' AS Category,
+SPLIT(File_Name, ' ')[OFFSET(3)] AS Year,
+INITCAP(SPLIT(File_Name, ' ')[OFFSET(2)]) AS Month,
+NULL AS Door_Rank_MTD,
+CAST(Skincare AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.glf_ytd_1` WHERE Unnamed__16 IS NOT NULL
