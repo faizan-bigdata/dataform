@@ -3,7 +3,7 @@ config {
   schema: "coty_cb_mongodb"
 }
 
-SELECT SPLIT(Locations, ' - ')[OFFSET(1)] AS Source,
+SELECT (CASE WHEN SPLIT(Locations, ' - ')[OFFSET(1)] = "Bloomingdale's Ecom"  THEN 'BLM Dept Store' WHEN SPLIT(Locations, ' - ')[OFFSET(1)] = "Harvey Nichols"  THEN 'Harvey Nichols UAE' WHEN CONTAINS_SUBSTR(SPLIT(Locations, ' - ')[OFFSET(1)],'Ounass') THEN 'Ounass' ELSE SPLIT(Locations, ' - ')[OFFSET(1)] END) AS Source,
   CONCAT('20',RIGHT(Month, 2)) AS Year,
   LEFT(Month, 3) AS Month,
   'UAE' AS Country,

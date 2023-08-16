@@ -1,0 +1,6 @@
+config {
+  type: "incremental",
+  schema: "coty_sandbox"
+}
+
+SELECT Source, CAST(Year AS INT64), Month, Country, Account, Mall, Door, Brand, Category, Item_Number, SKU, Qty_Sold, Sale_Amount, BU, Item_Code_2, File_Name, CAST(Created_At AS STRING), Item_Key FROM ${ref("all_sellout")}

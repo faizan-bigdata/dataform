@@ -1,6 +1,0 @@
-config {
-  type: "incremental",
-  schema: "coty_cb_mongodb"
-}
-
-SELECT * FROM ${ref("all_sellout")}

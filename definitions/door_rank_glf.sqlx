@@ -50,6 +50,7 @@ Created_At
 FROM `zippy-brand-176907.coty_cb_mongodb.glf_mtd_1` WHERE Unnamed__12 IS NOT NULL
 
 UNION ALL
+
 SELECT 'Key Account' AS BU,
 'Galeries Lafayette' AS Account,
 'Galeries Lafayette' AS Chain,
@@ -113,6 +114,7 @@ Created_At
 FROM `zippy-brand-176907.coty_cb_mongodb.glf_ytd_1` WHERE Unnamed__12 IS NOT NULL
 
 UNION ALL
+
 SELECT 'Key Account' AS BU,
 'Galeries Lafayette' AS Account,
 'Galeries Lafayette' AS Chain,
