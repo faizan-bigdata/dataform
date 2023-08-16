@@ -4,7 +4,7 @@ config {
 }
 
 SELECT
-  Main_Brand AS Source,
+  CASE WHEN CONTAINS_SUBSTR(Main_Brand,'Debenhams') THEN 'Debenhams' WHEN CONTAINS_SUBSTR(Main_Brand,'Harvey Nichols') THEN 'Harvey Nichols KWT' ELSE Main_Brand END AS Source,
   SPLIT(SPLIT(File_Name, ' - ')[OFFSET(2)], '.')[OFFSET(0)] AS Year,
   INITCAP((SPLIT(File_Name, ' - ')[OFFSET(1)])) AS Month,
   Country,
