@@ -3,8 +3,7 @@ config {
   schema: "coty_cb_mongodb"
 }
 
-SELECT
-  CASE WHEN CONTAINS_SUBSTR(Main_Brand,'Debenhams') THEN 'Debenhams' WHEN CONTAINS_SUBSTR(Main_Brand,'Harvey Nichols') THEN 'Harvey Nichols KWT' ELSE Main_Brand END AS Source,
+SELECT CASE WHEN CONTAINS_SUBSTR(Main_Brand,'Debenhams') THEN 'Debenhams' WHEN CONTAINS_SUBSTR(Main_Brand,'Harvey Nichols') THEN 'Harvey Nichols KWT' ELSE Main_Brand END AS Source,
   SPLIT(SPLIT(File_Name, ' - ')[OFFSET(2)], '.')[OFFSET(0)] AS Year,
   INITCAP((SPLIT(File_Name, ' - ')[OFFSET(1)])) AS Month,
   Country,
@@ -23,4 +22,4 @@ SELECT
   Created_At,
   CONCAT('_',COALESCE(Description,''),'_',COALESCE(CAST(Barcode AS STRING),''),'_',COALESCE(Brands,''),'_',COALESCE(Category,'')) AS Item_Key
 FROM coty_cb_mongodb.alshaya_1
-WHERE FORMAT_DATETIME("%B", DATETIME(Date)) = INITCAP((SPLIT(File_Name, ' - ')[OFFSET(1)]))
+WHERE LEFT(FORMAT_DATETIME("%B", DATETIME(Date)),3) = INITCAP((SPLIT(File_Name, ' - ')[OFFSET(1)]))
