@@ -1,1 +1,0 @@
-FROM ${ref("market_share_faces_2")}

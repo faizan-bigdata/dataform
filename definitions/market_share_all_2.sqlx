@@ -1,0 +1,174 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT `Source`, Year, Month, Country, Account, Mall, Door, Brand, Category, Item_Number, SKU, Qty_Sold, CAST(Sale_Amount AS FLOAT64) AS Sale_Amount, File_Name, Created_At, BU, Item_Code_2, Category_MS, Total_MS, Category_Rank, Total_Rank, Category_Sales, Total_Sales FROM ${ref("market_share_all")}
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'HUGO BOSS' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_HUGO BOSS_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'HUGO BOSS')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'BOTTEGA VENETA' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_BOTTEGA VENETA_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'BOTTEGA VENETA')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'BURBERRY' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_BURBERRY_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'BURBERRY')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'CALVIN KLEIN' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_CALVIN KLEIN_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'CALVIN KLEIN')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'CHLOE' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_CHLOE_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'CHLOE')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'DAVIDOFF' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_DAVIDOFF_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'DAVIDOFF')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'LANCASTER' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_LANCASTER_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'LANCASTER')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'LACOSTE' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_LACOSTE_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'LACOSTE')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'GUCCI' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_GUCCI_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'GUCCI')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'MARC JACOBS' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_MARC JACOBS_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'MARC JACOBS')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'MIU MIU' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_MIU MIU_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'MIU MIU')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'ROBERTO CAVALLI' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_ROBERTO CAVALLI_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'ROBERTO CAVALLI')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'STELLA MCCARTNEY' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_STELLA MCCARTNEY_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'STELLA MCCARTNEY')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL
+
+UNION ALL
+
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'TIFFANY & CO.' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_TIFFANY & CO._',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+(SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
+LEFT OUTER JOIN
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Faces' AND Brand = 'TIFFANY & CO.')TEMP
+ON TEMP.YEAR = ALLS.YEAR
+AND TEMP.MONTH = ALLS.MONTH
+AND TEMP.Category = ALLS.Category
+AND TEMP.Door = ALLS.Door
+WHERE TEMP.Door IS NULL

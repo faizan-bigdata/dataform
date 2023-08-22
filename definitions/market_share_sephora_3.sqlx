@@ -5,8 +5,7 @@ config {
 
 SELECT TRMS.Source, TRMS.Year, TRMS.Month, TRMS.Country, TRMS.Account, TRMS.Mall, DL.New_Label AS Door, TRMS.Brand, TRMS.Category, TRMS.Item_Number, TRMS.SKU, TRMS.Qty_Sold, TRMS.Sale_Amount, TRMS.File_Name, TRMS.Created_At, TRMS.BU, TRMS.Item_Code_2, TRMS.Category_MS, TRMS.Total_MS, TRMS.Category_Rank, TRMS.Total_Rank
 FROM
-(SELECT * FROM ${ref("market_share_sephora_2")}
-WHERE ACCOUNT = 'Sephora' AND YEAR = '2023' AND MONTH = 'May')TRMS
+(SELECT * FROM ${ref("market_share_sephora_2")})TRMS
 LEFT OUTER JOIN 
 (SELECT DISTINCT Door, New_Label FROM coty_sandbox.door_labels)DL
 ON TRMS.Door = DL.Door
