@@ -60,3 +60,30 @@ and S3.Year = S4.Year
 and S3.Month = S4.Month
 and S3.Country = S4.Country
 group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22
+
+UNION ALL
+
+SELECT Unnamed__0 AS Source,
+TRIM(SPLIT(SPLIT(File_Name, '-')[OFFSET(2)],'.')[OFFSET(0)]) AS Year,
+TRIM(SPLIT(File_Name, '-')[OFFSET(1)]) AS Month,
+'' AS Country,
+CASE WHEN Unnamed__0 = 'DDF' THEN 'Dubai Duty Free' ELSE 'Unnamed__0' END AS Account,
+Null AS Mall,
+'' AS Door,
+Unnamed__1 AS Brand,
+'Fragrance' AS Category,
+Null AS Item_Number,
+Null AS SKU,
+Null AS Qty_Sold,
+CAST(Unnamed__2 AS STRING) AS Sale_Amount,
+File_Name,
+Created_At,
+'Travel Retail' AS BU,
+Null AS Item_Code_2,
+Null AS Category_MS,
+Null AS Total_MS,
+Null AS Category_Rank,
+Null AS Total_Rank,
+CAST(Unnamed__3 AS FLOAT64) AS Category_Sales,
+Null AS Total_Sales
+FROM coty_cb_mongodb.tr_ms

@@ -7,7 +7,7 @@ SELECT `Source`, Year, Month, Country, Account, Mall, Door, Brand, Category, Ite
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'HUGO BOSS' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_HUGO BOSS_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'HUGO BOSS' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_HUGO BOSS_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'HUGO BOSS')TEMP
@@ -19,7 +19,7 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'BOTTEGA VENETA' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_BOTTEGA VENETA_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'BOTTEGA VENETA' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_BOTTEGA VENETA_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'BOTTEGA VENETA')TEMP
@@ -31,7 +31,7 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'BURBERRY' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_BURBERRY_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'BURBERRY' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_BURBERRY_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'BURBERRY')TEMP
@@ -43,7 +43,7 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'CALVIN KLEIN' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_CALVIN KLEIN_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'CALVIN KLEIN' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_CALVIN KLEIN_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'CALVIN KLEIN')TEMP
@@ -55,7 +55,7 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'CHLOE' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_CHLOE_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'CHLOE' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_CHLOE_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'CHLOE')TEMP
@@ -67,7 +67,7 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'DAVIDOFF' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_DAVIDOFF_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'DAVIDOFF' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_DAVIDOFF_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'DAVIDOFF')TEMP
@@ -79,7 +79,7 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'LANCASTER' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_LANCASTER_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'LANCASTER' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_LANCASTER_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'LANCASTER')TEMP
@@ -91,7 +91,7 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'LACOSTE' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_LACOSTE_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'LACOSTE' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_LACOSTE_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'LACOSTE')TEMP
@@ -103,7 +103,7 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'GUCCI' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_GUCCI_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'GUCCI' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_GUCCI_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'GUCCI')TEMP
@@ -115,7 +115,7 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'MARC JACOBS' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_MARC JACOBS_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'MARC JACOBS' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_MARC JACOBS_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'MARC JACOBS')TEMP
@@ -127,7 +127,7 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'MIU MIU' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_MIU MIU_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'MIU MIU' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_MIU MIU_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'MIU MIU')TEMP
@@ -139,7 +139,7 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'ROBERTO CAVALLI' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_ROBERTO CAVALLI_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'ROBERTO CAVALLI' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_ROBERTO CAVALLI_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'ROBERTO CAVALLI')TEMP
@@ -151,7 +151,7 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'STELLA MCCARTNEY' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_STELLA MCCARTNEY_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'STELLA MCCARTNEY' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_STELLA MCCARTNEY_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'STELLA MCCARTNEY')TEMP
@@ -163,7 +163,7 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'TIFFANY & CO.' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_TIFFANY & CO._',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'TIFFANY & CO.' AS Brand, ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_TIFFANY & CO._',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
 (SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM ${ref("market_share_all")} WHERE ACCOUNT = 'Faces' AND Brand = 'TIFFANY & CO.')TEMP
@@ -176,7 +176,7 @@ WHERE TEMP.Door IS NULL
 UNION ALL
 
 SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'GUCCI' AS Brand, 
-       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_GUCCI_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
+       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_GUCCI_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
        'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, 
        ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
@@ -190,13 +190,13 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'Chloe' AS Brand, 
-       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_Chloe_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'CHLOE' AS Brand, 
+       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_CHLOE_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
        'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, 
        ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
-(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' AND Brand = 'Chloe')TEMP
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' AND Brand = 'CHLOE')TEMP
 ON TEMP.YEAR = ALLS.YEAR
 AND TEMP.MONTH = ALLS.MONTH
 AND TEMP.Category = ALLS.Category
@@ -205,13 +205,13 @@ WHERE TEMP.Door IS NULL
 
 UNION ALL
 
-SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'Davidoff' AS Brand, 
-       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_Davidoff_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
+SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'DAVIDOFF' AS Brand, 
+       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_DAVIDOFF_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
        'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, 
        ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
 LEFT OUTER JOIN
-(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' AND Brand = 'Davidoff')TEMP
+(SELECT DISTINCT YEAR,MONTH,Category,Door,Brand FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' AND Brand = 'DAVIDOFF')TEMP
 ON TEMP.YEAR = ALLS.YEAR
 AND TEMP.MONTH = ALLS.MONTH
 AND TEMP.Category = ALLS.Category
@@ -221,7 +221,7 @@ WHERE TEMP.Door IS NULL
 UNION ALL
 
 SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'LANCASTER' AS Brand, 
-       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_LANCASTER_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
+       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_LANCASTER_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
        'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, 
        ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
@@ -236,7 +236,7 @@ WHERE TEMP.Door IS NULL
 UNION ALL
 
 SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'CALVIN KLEIN' AS Brand, 
-       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_CALVIN KLEIN_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
+       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_CALVIN KLEIN_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
        'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, 
        ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
@@ -251,7 +251,7 @@ WHERE TEMP.Door IS NULL
 UNION ALL
 
 SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'HUGO BOSS' AS Brand, 
-       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_HUGO BOSS_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
+       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_HUGO BOSS_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
        'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, 
        ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
@@ -266,7 +266,7 @@ WHERE TEMP.Door IS NULL
 UNION ALL
 
 SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'ROBERTO CAVALLI' AS Brand, 
-       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_ROBERTO CAVALLI_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
+       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_ROBERTO CAVALLI_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
        'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, 
        ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
@@ -281,7 +281,7 @@ WHERE TEMP.Door IS NULL
 UNION ALL
 
 SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'BURBERRY' AS Brand, 
-       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_BURBERRY_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
+       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_BURBERRY_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
        'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, 
        ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
@@ -296,7 +296,7 @@ WHERE TEMP.Door IS NULL
 UNION ALL
 
 SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'ALEXANDER MCQUEEN' AS Brand, 
-       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_ALEXANDER MCQUEEN_',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
+       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_ALEXANDER MCQUEEN_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
        'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, 
        ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
@@ -311,7 +311,7 @@ WHERE TEMP.Door IS NULL
 UNION ALL
 
 SELECT ALLS.Source, ALLS.Year, ALLS.Month, NULL AS Country, ALLS.Account, NULL AS Mall, ALLS.Door AS Door, 'TIFFANY & CO.' AS Brand, 
-       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_TIFFANY & CO._',COALESCE(ALLS.Category,''),'_',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
+       ALLS.Category, NULL AS Item_Number, NULL AS SKU, NULL AS Qty_Sold, 0 AS Sale_Amount, CONCAT(COALESCE(ALLS.Account,''),'_TIFFANY & CO._',COALESCE(CAST(ALLS.Year AS STRING),''),'_',COALESCE(ALLS.Month,'')) AS File_Name, NULL AS Created_At, 
        'Key Account' AS BU, NULL AS Item_Code_2, NULL AS Category_MS, NULL AS Total_MS, NULL AS Category_Rank, NULL AS Total_Rank, 
        ALLS.Category_Sales, NULL AS Total_Sales FROM
 (SELECT DISTINCT YEAR,MONTH,Source,ACCOUNT,Category,Door, MAX(Category_Sales) AS Category_Sales FROM coty_cb_mongodb.market_share_all WHERE ACCOUNT = 'Sephora' GROUP BY YEAR,MONTH,Source,ACCOUNT,Category,Door)ALLS
