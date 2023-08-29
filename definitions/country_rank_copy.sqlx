@@ -1,0 +1,10 @@
+config {
+  type: "incremental",
+  schema: "coty_sandbox"
+}
+
+SELECT * FROM ${ref("country_rank_faces")}
+
+UNION ALL
+
+SELECT * FROM ${ref("country_rank_sephora")}

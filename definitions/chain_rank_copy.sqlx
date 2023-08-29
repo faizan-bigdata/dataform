@@ -1,0 +1,18 @@
+config {
+  type: "incremental",
+  schema: "coty_sandbox"
+}
+
+SELECT * FROM ${ref("chain_rank_altayer")}
+
+UNION ALL
+
+SELECT * FROM ${ref("chain_rank_faces")}
+
+UNION ALL
+
+SELECT * FROM ${ref("chain_rank_sephora")}
+
+UNION ALL
+
+SELECT * FROM ${ref("chain_rank_tryano")}
