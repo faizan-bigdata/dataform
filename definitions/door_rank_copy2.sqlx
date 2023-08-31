@@ -3,24 +3,24 @@ config {
   schema: "coty_sandbox"
 }
 
-SELECT BU, Account, Chain, Door, Brand, Category, CAST(Year AS INT64), Month, Door_Rank_MTD, CAST(Door_Rank_YTD AS STRING), File_Name, Created_At FROM ${ref("door_rank_altayer")}
+SELECT BU, Account, Chain, Door, Brand, Category, Year, Month, Door_Rank_MTD, CAST(Door_Rank_YTD AS STRING), File_Name, Created_At FROM ${ref("door_rank_altayer")}
 
 UNION ALL
 
-SELECT BU, Account, Chain, Door, Brand, Category, CAST(Year AS INT64), Month, Door_Rank_MTD, CAST(Door_Rank_YTD AS STRING), File_Name, Created_At FROM ${ref("door_rank_faces")}
+SELECT BU, Account, Chain, Door, Brand, Category, Year, Month, Door_Rank_MTD, CAST(Door_Rank_YTD AS STRING), File_Name, Created_At FROM ${ref("door_rank_faces")}
 
 UNION ALL
 
-SELECT BU, Account, Chain, Door, Brand, Category, CAST(Year AS INT64), Month, Door_Rank_MTD, CAST(Door_Rank_YTD AS STRING), File_Name, Created_At FROM ${ref("door_rank_sephora")}
+SELECT BU, Account, Chain, Door, Brand, Category, Year, Month, Door_Rank_MTD, CAST(Door_Rank_YTD AS STRING), File_Name, Created_At FROM ${ref("door_rank_sephora")}
 
 UNION ALL
 
-SELECT BU, Account, Chain, Door, Brand, Category, CAST(Year AS INT64), Month, Door_Rank_MTD, CAST(Door_Rank_YTD AS STRING), File_Name, Created_At FROM ${ref("door_rank_tryano")}
+SELECT BU, Account, Chain, Door, Brand, Category, Year, Month, Door_Rank_MTD, CAST(Door_Rank_YTD AS STRING), File_Name, Created_At FROM ${ref("door_rank_tryano")}
 
 UNION ALL
 
-SELECT BU, Account, Chain, Door, Brand, Category, CAST(Year AS INT64), Month, Door_Rank_MTD, CAST(Door_Rank_YTD AS STRING), File_Name, Created_At FROM ${ref("door_rank_glf")}
+SELECT BU, Account, Chain, Door, Brand, Category, Year, Month, Door_Rank_MTD, CAST(Door_Rank_YTD AS STRING), File_Name, Created_At FROM ${ref("door_rank_glf")}
 
 UNION ALL
 
-SELECT BU, Account, Chain, Door, Brand, Category, CAST(Year AS INT64), Month, Door_Rank_MTD, CAST(Door_Rank_YTD AS STRING), File_Name, Created_At FROM ${ref("door_rank_alshaya")}
+SELECT BU, Account, Chain, Door, Brand, Category, Year, Month, Door_Rank_MTD, CAST(Door_Rank_YTD AS STRING), File_Name, Created_At FROM ${ref("door_rank_alshaya")}
