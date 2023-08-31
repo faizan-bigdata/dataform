@@ -20,3 +20,7 @@ SELECT * FROM ${ref("door_rank_tryano")}
 UNION ALL
 
 SELECT * FROM ${ref("door_rank_glf")}
+
+UNION ALL
+
+SELECT * FROM ${ref("door_rank_alshaya")}

@@ -1,0 +1,34 @@
+config {
+  type: "table",
+  schema: "coty_cb_mongodb"
+}
+
+SELECT 'Key Account' AS BU,
+'Al Shaya' AS Account,
+CASE WHEN CONTAINS_SUBSTR(Source, 'HN') THEN 'Harvey Nichols KWT' WHEN CONTAINS_SUBSTR(Source, 'VAV') THEN 'Va Va Voom' WHEN CONTAINS_SUBSTR(Source, 'DCO') THEN 'Debenhams' END AS Chain,
+SPLIT(Store,'___')[OFFSET(1)] AS Door,
+nan___nan___nan AS Brand,
+SPLIT(Store,'___')[OFFSET(2)] AS Category,
+SPLIT(SPLIT(File_Name, ' - ')[OFFSET(2)], '.')[OFFSET(0)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+CAST(Rank AS FLOAT64) Door_Rank_MTD,
+Null AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.alshaya_rank` WHERE Source LIKE "%MTD%" AND Rank NOT LIKE "%Unnamed%" AND Rank NOT LIKE "%2023%" AND nan___nan___nan NOT IN ('Grand Total') AND SPLIT(Store,'___')[OFFSET(0)] NOT LIKE "%Total%"
+
+UNION ALL
+
+SELECT 'Key Account' AS BU,
+'Al Shaya' AS Account,
+CASE WHEN CONTAINS_SUBSTR(Source, 'HN') THEN 'Harvey Nichols KWT' WHEN CONTAINS_SUBSTR(Source, 'VAV') THEN 'Va Va Voom' WHEN CONTAINS_SUBSTR(Source, 'DCO') THEN 'Debenhams' END AS Chain,
+SPLIT(Store,'___')[OFFSET(1)] AS Door,
+nan___nan___nan AS Brand,
+SPLIT(Store,'___')[OFFSET(2)] AS Category,
+SPLIT(SPLIT(File_Name, ' - ')[OFFSET(2)], '.')[OFFSET(0)] AS Year,
+INITCAP(SPLIT(File_Name, ' - ')[OFFSET(1)]) AS Month,
+Null AS Door_Rank_MTD,
+CAST(Rank AS FLOAT64) AS Door_Rank_YTD,
+File_Name,
+Created_At
+FROM `zippy-brand-176907.coty_cb_mongodb.alshaya_rank` WHERE Source LIKE "%YTD%" AND Rank NOT LIKE "%Unnamed%" AND Rank NOT LIKE "%2023%" AND nan___nan___nan NOT IN ('Grand Total') AND SPLIT(Store,'___')[OFFSET(0)] NOT LIKE "%Total%"
