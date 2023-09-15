@@ -11,7 +11,7 @@ SELECT
   'Galeries Lafayette' AS Account,
   '' AS Mall,
   'Galeries Lafayette' AS Door,
-  Item_Family_Description AS Brand,
+  Item_Family_Description_ AS Brand,
   Category,
   SPLIT(CAST(Vendor_Item_No_ AS STRING), '.')[OFFSET(0)] AS Item_Number,
   Description AS SKU,
@@ -21,6 +21,6 @@ SELECT
   SPLIT(CAST(Barcode_No_ AS STRING), '.')[OFFSET(0)] AS Item_Code_2,
   File_Name,
   Created_At,
-  CONCAT(COALESCE(SPLIT(CAST(Vendor_Item_No_ AS STRING), '.')[OFFSET(0)],''),'_',COALESCE(Description,''),'_',COALESCE(SPLIT(CAST(Barcode_No_ AS STRING), '.')[OFFSET(0)],''),'_',COALESCE(Item_Family_Description,''),'_',COALESCE((Category),'')) AS Item_Key
+  CONCAT(COALESCE(SPLIT(CAST(Vendor_Item_No_ AS STRING), '.')[OFFSET(0)],''),'_',COALESCE(Description,''),'_',COALESCE(SPLIT(CAST(Barcode_No_ AS STRING), '.')[OFFSET(0)],''),'_',COALESCE(Item_Family_Description_,''),'_',COALESCE((Category),'')) AS Item_Key
 FROM coty_cb_mongodb.glf_1
-WHERE Item_Family_Description IS NOT NULL
+WHERE Item_Family_Description_ IS NOT NULL

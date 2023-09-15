@@ -3,40 +3,40 @@ config {
   schema: "coty_cb_mongodb"
 }
 
-SELECT * FROM ${ref("alshaya_2")}
+SELECT * FROM ${ref("sellout_alshaya")}
 
 UNION ALL
 
-SELECT * FROM ${ref("altayer_2")}
+SELECT * FROM ${ref("sellout_altayer")}
 
 UNION ALL
 
-SELECT * FROM ${ref("ddf_2")}
+SELECT * FROM ${ref("sellout_ddf")}
 
 UNION ALL
 
-SELECT * FROM ${ref("faces_2")}
+SELECT * FROM ${ref("sellout_faces")}
 
 UNION ALL
 
-SELECT * FROM ${ref("qdf_2")}
+SELECT * FROM ${ref("sellout_qdf")}
 
 UNION ALL
 
-SELECT * FROM ${ref("sephora_2")}
+SELECT * FROM ${ref("sellout_sephora")}
 
 UNION ALL
 
-SELECT * FROM ${ref("tryano_2")}
+SELECT * FROM ${ref("sellout_tryano")}
 
 UNION ALL
 
-SELECT * FROM ${ref("glf_2")}
+SELECT * FROM ${ref("sellout_glf")}
 
 UNION ALL
 
-SELECT * FROM ${ref("gsb_2")}
+SELECT * FROM ${ref("sellout_gsb")}
 
 UNION ALL
 
-SELECT * FROM ${ref("hnqatar_2")}
+SELECT * FROM ${ref("sellout_hnqatar")}

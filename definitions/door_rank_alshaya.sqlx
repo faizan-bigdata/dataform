@@ -15,7 +15,7 @@ CAST(Rank AS FLOAT64) Door_Rank_MTD,
 Null AS Door_Rank_YTD,
 File_Name,
 Created_At
-FROM `zippy-brand-176907.coty_cb_mongodb.alshaya_rank` WHERE Source LIKE "%MTD%" AND Rank NOT LIKE "%Unnamed%" AND Rank NOT LIKE "%2023%" AND nan___nan___nan NOT IN ('Grand Total') AND SPLIT(Store,'___')[OFFSET(0)] NOT LIKE "%Total%"
+FROM `zippy-brand-176907.coty_cb_mongodb.rank_alshaya` WHERE Source LIKE "%MTD%" AND Rank NOT LIKE "%Unnamed%" AND Rank NOT LIKE "%2023%" AND nan___nan___nan NOT IN ('Grand Total') AND SPLIT(Store,'___')[OFFSET(0)] NOT LIKE "%Total%"
 
 UNION ALL
 
@@ -31,4 +31,4 @@ Null AS Door_Rank_MTD,
 CAST(Rank AS FLOAT64) AS Door_Rank_YTD,
 File_Name,
 Created_At
-FROM `zippy-brand-176907.coty_cb_mongodb.alshaya_rank` WHERE Source LIKE "%YTD%" AND Rank NOT LIKE "%Unnamed%" AND Rank NOT LIKE "%2023%" AND nan___nan___nan NOT IN ('Grand Total') AND SPLIT(Store,'___')[OFFSET(0)] NOT LIKE "%Total%"
+FROM `zippy-brand-176907.coty_cb_mongodb.rank_alshaya` WHERE Source LIKE "%YTD%" AND Rank NOT LIKE "%Unnamed%" AND Rank NOT LIKE "%2023%" AND nan___nan___nan NOT IN ('Grand Total') AND SPLIT(Store,'___')[OFFSET(0)] NOT LIKE "%Total%"
