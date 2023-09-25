@@ -1,0 +1,8 @@
+config {
+  type: "incremental",
+  schema: "coty_sandbox"
+}
+
+SELECT 
+NULL AS ID, `Source`, CAST(Year AS INT64) as Year, Month, Country, Account, CAST(Mall AS STRING) as Mall, Door, Brand, Category, CAST(Item_Number AS STRING) as Item_Number, CAST(SKU AS STRING) as SKU, CAST(Qty_Sold AS FLOAT64) as Qty_Sold, CAST(Sale_Amount AS FLOAT64) as Sale_Amount, File_Name, Created_At, BU, CAST(Item_Code_2 AS STRING) as Item_Code_2, Category_MS, Total_MS, CAST(Category_Rank AS FLOAT64) as Category_Rank, CAST(Total_Rank AS FLOAT64) as Total_Rank, Category_Sales, Total_Sales 
+ FROM ${ref("market_share_all_2")}
