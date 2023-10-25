@@ -3,7 +3,9 @@ config {
   schema: "coty_cb_mongodb"
 }
 
-SELECT 'Sephora' AS Source,
+SELECT A.Source, A.Year, A.Month, A.Country, A.Account, A.Mall, A.Door, A.Brand, A.Category, A.Item_Number, A.SKU, A.Qty_Sold, A.Sale_Amount, A.File_Name, A.Created_At, A.BU, A.Item_Code_2, A.Category_MS, B.Total_MS, A.Category_Rank, A.Total_Rank
+FROM
+(SELECT 'Sephora' AS Source,
 CAST(EXTRACT(YEAR FROM Period_Selected) AS STRING )AS Year,
 LEFT(FORMAT_DATETIME("%B", Period_Selected),3) AS Month,
 Country,
@@ -20,12 +22,72 @@ File_Name,
 Created_At,
 'Key Account' AS BU,
 Null AS Item_Code_2,
-SAFE_DIVIDE(CAST(SOM_by_Brand_Sept_23 AS FLOAT64), 100) AS Category_MS,
+CAST(SOM_by_Brand_Sept_23 AS FLOAT64) AS Category_MS,
+-- SAFE_DIVIDE(CAST(SOM_by_Brand_Sept_23 AS FLOAT64), 100) AS Category_MS,
 0.0 AS Total_MS,
 Null AS Category_Rank,
 Null AS Total_Rank
 FROM `zippy-brand-176907.coty_cb_mongodb.sephora_ms`
-WHERE Target LIKE "%TOTAL FRAGRANCE%" OR Target LIKE "%TOTAL COLOUR%"
+WHERE Target LIKE "%TOTAL FRAGRANCE%" OR Target LIKE "%TOTAL COLOUR%") A
+LEFT OUTER JOIN
+(SELECT 'Sephora' AS Source,
+CAST(EXTRACT(YEAR FROM Period_Selected) AS STRING )AS Year,
+LEFT(FORMAT_DATETIME("%B", Period_Selected),3) AS Month,
+Country,
+'Sephora' AS Account,
+Null AS Mall,
+Store AS Door,
+Brand,
+Department AS Category,
+Null AS Item_Number,
+Null AS SKU,
+Null AS Qty_Sold,
+CAST(SO_MTD_Sept_23 AS STRING) AS Sale_Amount,
+File_Name,
+Created_At,
+'Key Account' AS BU,
+Null AS Item_Code_2,
+0.0 AS Category_MS,
+CAST(SOM_by_Brand_Sept_23 AS FLOAT64) AS Total_MS,
+-- SAFE_DIVIDE(CAST(SOM_by_Brand_Sept_23 AS FLOAT64), 100) AS Total_MS,
+Null AS Category_Rank,
+Null AS Total_Rank
+FROM `zippy-brand-176907.coty_cb_mongodb.sephora_ms`
+WHERE Target = "一TOTAL") B
+ON A.Door = B.Door
+AND A.Brand = B.Brand
+AND A.year = B.year
+AND A.Month = B.Month
+AND A.Country = B.Country
+
+----------------------2--------------------------
+
+-- SELECT 'Sephora' AS Source,
+-- CAST(EXTRACT(YEAR FROM Period_Selected) AS STRING )AS Year,
+-- LEFT(FORMAT_DATETIME("%B", Period_Selected),3) AS Month,
+-- Country,
+-- 'Sephora' AS Account,
+-- Null AS Mall,
+-- Store AS Door,
+-- Brand,
+-- Department AS Category,
+-- Null AS Item_Number,
+-- Null AS SKU,
+-- Null AS Qty_Sold,
+-- CAST(SO_MTD_Sept_23 AS STRING) AS Sale_Amount,
+-- File_Name,
+-- Created_At,
+-- 'Key Account' AS BU,
+-- Null AS Item_Code_2,
+-- SAFE_DIVIDE(CAST(SOM_by_Brand_Sept_23 AS FLOAT64), 100) AS Category_MS,
+-- 0.0 AS Total_MS,
+-- Null AS Category_Rank,
+-- Null AS Total_Rank
+-- FROM `zippy-brand-176907.coty_cb_mongodb.sephora_ms`
+-- WHERE Target LIKE "%TOTAL FRAGRANCE%" OR Target LIKE "%TOTAL COLOUR%"
+
+
+----------------------1-------------------------
 
 -- SELECT 'Sephora' AS Source,
 -- SPLIT(File_Name, ' - ')[OFFSET(2)] AS Year,
