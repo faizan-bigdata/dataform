@@ -5,7 +5,7 @@ config {
 
 SELECT
   'Sephora' AS Source,
-  EXTRACT(YEAR FROM Period_Selected) AS Year,
+  CAST(EXTRACT(YEAR FROM Period_Selected) AS STRING) AS Year,
   LEFT(FORMAT_DATETIME("%B", Period_Selected),3) AS Month,
   Country,
   'Sephora' AS Account,
@@ -18,7 +18,7 @@ SELECT
   CAST(newSO_QUANTITY_MTD_TM AS INT64) AS Qty_Sold,
   SO_MTD_TM	AS Sale_Amount,
   'Key Account' AS	BU,
-  EAN_Code AS Item_Code_2,
+  CAST(EAN_Code AS STRING) AS Item_Code_2,
   File_Name,
   Created_At,
   CONCAT('_',COALESCE(Material,''),'_',COALESCE(CAST(EAN_Code AS STRING),''),'_',COALESCE(Brand,''),'_',COALESCE(Department,'')) AS Item_Key
