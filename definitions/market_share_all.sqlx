@@ -6,11 +6,11 @@ config {
 SELECT S3.*,SUM(S4.Total_Sales) AS Total_Sales
 FROM
 (SELECT S1.*,SUM(S2.Category_Sales) AS Category_Sales FROM
-(SELECT * FROM ${ref("market_share_sephora_3")} ) S1
+(SELECT * FROM ${ref("market_share_sephora_2")} ) S1
 LEFT OUTER JOIN
 (SELECT ACCOUNT, Door,Category, YEAR, MONTH, Country,MAX(Category_Sales) AS Category_Sales
 FROM
-(SELECT ACCOUNT, Door,Category, YEAR, MONTH, Brand, Country, SAFE_DIVIDE(SUM(CAST(Sale_Amount AS FLOAT64)),MAX(Category_MS)) AS Category_Sales FROM ${ref("market_share_sephora_3")} GROUP BY ACCOUNT, Door, Category, YEAR, MONTH, Brand, Country)
+(SELECT ACCOUNT, Door,Category, YEAR, MONTH, Brand, Country, SAFE_DIVIDE(SUM(CAST(Sale_Amount AS FLOAT64)),MAX(Category_MS)) AS Category_Sales FROM ${ref("market_share_sephora_2")} GROUP BY ACCOUNT, Door, Category, YEAR, MONTH, Brand, Country)
 group by ACCOUNT, Door,Category, YEAR, MONTH, Country) S2
 ON S1.ACCOUNT = S2.ACCOUNT
 and S1.Door = S2.Door
@@ -22,7 +22,7 @@ group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21) S3
 LEFT OUTER JOIN
 (SELECT ACCOUNT, Door, YEAR, MONTH, Country,MAX(Total_Sales) AS Total_Sales
 FROM
-(SELECT ACCOUNT, Door, YEAR, MONTH, Brand, Country, SAFE_DIVIDE(SUM(CAST(Sale_Amount AS FLOAT64)),MAX(Total_MS)) AS Total_Sales FROM ${ref("market_share_sephora_3")} WHERE Total_MS IS NOT NULL GROUP BY ACCOUNT, Door, YEAR, MONTH, Brand, Country)
+(SELECT ACCOUNT, Door, YEAR, MONTH, Brand, Country, SAFE_DIVIDE(SUM(CAST(Sale_Amount AS FLOAT64)),MAX(Total_MS)) AS Total_Sales FROM ${ref("market_share_sephora_2")} WHERE Total_MS IS NOT NULL GROUP BY ACCOUNT, Door, YEAR, MONTH, Brand, Country)
 group by ACCOUNT, Door, YEAR, MONTH, Country) S4
 ON S3.ACCOUNT = S4.ACCOUNT
 and S3.Door = S4.Door
